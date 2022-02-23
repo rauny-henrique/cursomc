@@ -1,9 +1,9 @@
 package com.rauny.cursomc.resources;
 
 import com.rauny.cursomc.domain.Categoria;
-import com.rauny.cursomc.domain.Cliente;
+import com.rauny.cursomc.domain.Pedido;
 import com.rauny.cursomc.services.CategoriaService;
-import com.rauny.cursomc.services.ClienteService;
+import com.rauny.cursomc.services.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/clientes")
-public class ClienteResource {
+@RequestMapping(value = "/pedidos")
+public class PedidoResource {
 	
 	@Autowired
-	private ClienteService service;
+	private PedidoService service;
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public ResponseEntity<Cliente> find(@PathVariable Integer id)
+	public ResponseEntity<Pedido> find(@PathVariable Integer id)
 	{
-		Cliente obj = service.find(id);
+		Pedido obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
 
